@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bluelife.css">
+
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+		<body>
+		<div id="hideBody">
+		<div id="err"></div>
+			<form id="sub_int">
+			
+
+<div class="w3-display-container mySlides" style="max-width:800px">
+
+	<br><br>
+	<div class="w3-container w3-center w3-light-grey">
+	 
+	</div><br>		
+	<table>
+	<tr> Have you reviewed the work order information?</tr>
+	<tr>&nbsp&nbsp<input id="revWO" class="w3-check" type="checkbox"></tr>
+	<tr>&nbsp&nbsp<a href="/index.php/work-order-execution" onclick="tabtypeset()">Review Work Order</a></tr>
+	</table><br>
+	
+
+	<label>Do you have questions?</label>
+	<button class="w3-bar-item w3-button w3-round-xlarge tablink w3-blue"> Ask a question</button><br> <br>
+
+	<label>Tell the client about yourself</label>
+	<input id="abtCont1" class="w3-input" type="text" placeholder="Type here">
+	<input id="abtCont2" class="w3-input" type="text" placeholder="Continue typing here">
+	<input id="abtCont3" class="w3-input" type="text" placeholder="Continue typing here">
+
+	<label>Referred by</label>
+	<input id="referredby" class="w3-input" type="text"><br>
+
+	<br>
+	<div class="w3-container w3-right w3-light-grey">
+	 Page 1 of 3
+	</div><br>
+
+	<br>
+	<!--ton class="w3-button w3-blue w3-center" onclick="submitForm()" >Submit Registration</b-->
+</div>
+
+<div class="w3-display-container mySlides">
+<div class="w3-card-4" style="width:800px">
+			<h3>Recommended milestones</h3>
+			(Select milestones from the list or create your own milestones at the bottom)
+			<table id="milestone" class="w3-table w3-bordered">
+			    <tr class="w3-text-blue">
+				  <th/>
+				  <th>Completion date</th>
+				  <th>Milestone name</th>
+				  <th>% due</th>
+				  <th>Notes</th>
+				</tr>
+				<tr>
+				  <td><input class="w3-check" type="checkbox"></td>								
+				  <td><input class="w3-input" type="date"></td></td>
+				  <td>Onboarding resources</td>
+				  <td><input class="w3-input" type="text" value="10"></td>
+				  <td><input class="w3-input" type="text"></td>
+				</tr>
+				<tr >
+				  <td><input class="w3-check" type="checkbox"></td>								
+				  <td><input class="w3-input" type="date"></td></td>
+				  <td>Foundation work</td>
+				  <td><input class="w3-input" type="text" value="20"></td>
+				  <td><input class="w3-input" type="text"></td>				  
+				</tr>
+				<tr>
+				  <td><input class="w3-check" type="checkbox"></td>								
+				  <td><input class="w3-input" type="date"></td></td>
+				  <td>Flooring work</td>
+				  <td><input class="w3-input" type="text" value="20"></td>
+				  <td><input class="w3-input" type="text"></td>				  
+				</tr>
+				<tr>
+				  <td><input class="w3-check" type="checkbox"></td>								
+				  <td><input class="w3-input" type="date"></td></td>
+				  <td>Walls & Plumbing</td>
+				  <td><input class="w3-input" type="text" value="15"></td>
+				  <td><input class="w3-input" type="text"></td>				  
+				</tr>				
+				<tr>
+				  <td><input class="w3-check" type="checkbox"></td>								
+				  <td><input class="w3-input" type="date"></td></td>
+				  <td>Roof & Kitchen</td>
+				  <td><input class="w3-input" type="text" value="20"></td>
+				  <td><input class="w3-input" type="text"></td>				  
+				</tr>				
+				<tr>
+				  <td><input class="w3-check" type="checkbox"></td>								
+				  <td><input class="w3-input" type="date"></td></td>
+				  <td>Final blue table items</td>
+				  <td><input class="w3-input" type="text" value="15"></td>
+				  <td><input class="w3-input" type="text"></td>				  
+				</tr>			
+				<tr>
+				  <td><input class="w3-check" type="checkbox"></td>								
+				  <td><input id="complnDate" class="w3-input" type="date"></td></td>
+				  <td>Project complete</td>
+				  <td><input class="w3-input" type="text" value="0"></td>
+				  <td><input class="w3-input" type="text"></td>				  
+				</tr>
+				<br> <br>
+			</table>	  
+  </div>
+  <div class="w3-card-4" style="width:800px">
+    <header class="w3-container w3-light-grey">
+      <h3>Add a custom milestone</h3>
+    </header>
+    <div class="w3-container">
+			<label class="w3-text-blue">Milestone name</label>
+			<input id="mName" class="w3-input" type="text">
+			<label id="mileComplnDate" class="w3-text-blue">Completion date</label>
+			<input id="mCompDate" class="w3-input" type="date">
+			<label class="w3-text-blue">% due</label>
+			<input id="mDue" class="w3-input" type="text">	
+			<label class="w3-text-blue">Notes</label>
+			<input id="mNotes" class="w3-input" type="textbox">			
+    </div>
+	<input name="addMilestones" type="button" id="addMilestones" class="w3-button w3-block w3-dark-grey" onclick="addMilestone()" value="+ Milestone">
+  </div>
+</div>
+
+<div class="w3-display-container mySlides" style="width:800px">
+
+	<br><br>
+	<div class="w3-container w3-center w3-light-grey">
+	 
+	</div><br>		
+
+	<label>Estimated budget</label>
+	<input id="estbudget" class="w3-input" type="text"> <br>
+
+	<label>Will you be using a sub-contractor?</label>
+	<input class="w3-check" type="checkbox">
+	<br><br>
+	<table id="subContractorTble" class="w3-table w3-bordered">
+		<tr>
+		  <th>Sl #</th>
+		  <th>Company name</th>
+		  <th>Phone #/Email address</th>
+		  <th>Address</th>
+		</tr>
+	</table>			
+					<br>
+	<label>If yes, enter the sub-contractor information</label>
+	<input id="subConName" class="w3-input" type="text" placeholder="Enter sub-contractor's name">
+	<input id="subConEmail" class="w3-input" type="text" placeholder="Enter sub-contractor's email address">
+	<input id="subConAddr" class="w3-input" type="text" placeholder="Enter sub-contractor's address">
+	<input name="addSubContr" type="button" id="addSubContr" class="w3-button w3-blue w3-round-xxlarge" onclick="addSubContractor()" value="+Add sub-contractor">
+	<p/><p/>
+	<label>Who do you bank with?</label>
+	<input id="bankwith" class="w3-input" type="text"><br>
+
+	<br>
+	<div class="w3-container w3-right w3-light-grey">
+	 Page 3 of 3
+	</div><br>
+
+	<br>
+</div>
+
+	<div class="w3-container w3-center" style="width:800px">
+		<input name="PrevBtn" type="button" id="prevBtn" class="w3-button w3-light-grey w3-border-blue " onclick="plusDivss(-1)" value="<<Prev">
+		<button name="button" id="submit" class="w3-button w3-light-grey w3-border-blue" >Submit Interest</button>
+		<input name="NxtBtn" type="button" id="nxtBtn" class="w3-button w3-light-grey w3-border-blue" onclick="plusDivss(1)" value="Next>>">
+	</div>
+</form>
+<script>
+var slideIndexs = 1;
+showDivs(slideIndexs);
+
+function plusDivss(n) {
+  showDivs(slideIndexs += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndexs = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {/*slideIndexs = 1;*/ document.getElementsById("nxtBtn").style.display="none"; document.getElementsById("prevBtn").style.display="block"; }    
+  if (n < 1) {/*slideIndexs = x.length;*/ document.getElementsById("prevBtn").style.display="none"; document.getElementsById("nxtBtn").style.display="block";}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+ /* for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-red", "");
+  }*/
+  x[slideIndexs-1].style.display = "block";  
+  /*dots[slideIndexs-1].className += " w3-red"; */
+}
+
+function addSubContractor() {
+
+	var table = document.getElementById("subContractorTble");
+    var x = document.getElementById('subContractorTble').getElementsByTagName('tr').length - 1;
+    var row = table.insertRow();
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    cell1.innerHTML = x + 1;
+    cell2.innerHTML = document.getElementById("subConName").value;
+    document.getElementById("subConName").value = "";
+    cell3.innerHTML = document.getElementById("subConEmail").value;
+    document.getElementById("subConEmail").value = "";
+    cell4.innerHTML = document.getElementById("subConAddr").value;
+    document.getElementById("subConAddr").value = "";
+	
+	
+}
+
+function addMilestone() {
+
+	var table = document.getElementById("milestone");
+    
+    var row = table.insertRow();
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+	var cell5 = row.insertCell(4);
+    cell1.innerHTML = '<input class="w3-check" type="checkbox" Checked>';
+    cell2.innerHTML = document.getElementById("mCompDate").value;
+    document.getElementById("mCompDate").value = "";
+    cell3.innerHTML = document.getElementById("mName").value;
+    document.getElementById("mName").value = "";
+    cell4.innerHTML = document.getElementById("mDue").value;
+    document.getElementById("mDue").value = "";
+	cell5.innerHTML = document.getElementById("mNotes").value;
+    document.getElementById("mNotes").value = "";
+	
+	
+}
+
+
+function getMysubcontrJSON() {
+    var table = document.getElementById("subContractorTble");
+    var subcont = '';
+    var comm = '';
+    for (var i = 1, row; row = table.rows[i]; i++) {
+
+        subcont = subcont + comm +
+            '{' +
+            '"commGenPolicy": "string",' +
+            '"commGeneralLiabProvider": "string",' +
+            '"contractorId": 0,' +
+            '"contractorUser": {' +
+            '"active": 0,' +
+            '"email": "string",' +
+            '"firstName": "string",' +
+            '"lastName": "string",' +
+            '"password": "string",' +
+            '"phNum": "string",' +
+            '"referredBy": "string",' +
+            '"userId": 0,' +
+            '"userName": "string",' +
+            '"userTypeId": 0' +
+            '},';
+
+        subcont = subcont +
+            '"firmName": "' + row.cells[1].innerHTML + '",';
+
+        subcont = subcont +
+            '"email": "' + row.cells[2].innerHTML + '",';
+
+        subcont = subcont +
+
+            '"firmAddress": {' +
+            '"addressId": 0,' +
+            '"city": "string",' +
+            '"country": "string",' +
+            '"county": "string",' +
+            '"latitude": 0,' +
+            '"longitude": 0,' +
+            '"state": "string",' +
+            '"street": "' + row.cells[3].innerHTML + '",' +
+            '"zip": "string"' +
+            '},' +
+            '"firmName": "string",' +
+            '"firmType": "string",' +
+            '"insId": 0,' +
+            '"licId": 0,' +
+            '"licenseExpDate": "2020-01-20",' +
+            '"licenseNum": "string",' +
+            '"licensedState": "string",' +
+            '"phoneNumber": "string",' +
+            '"workCompInsuranceProvider": "string",' +
+            '"workCompPolicy": "string"' +
+            '}';
+        comm = ',';
+    }
+    subcont = subcont + ''
+        return subcont;
+}
+
+function getMilestoneJSON() {
+    var table = document.getElementById("milestone");
+    var mileST = '';
+    var comms = '';
+    for (var i = 1, row; row = table.rows[i]; i++) {
+		var status = $(row).find('input[type="checkbox"]').prop('checked');
+		//console.log("Row no."+i+", "+status);
+		if (status == true) {
+        if (row.cells[1].querySelector('input') == null) {
+            mileST = mileST + comms +
+                '{' +
+                '"completionDate":"' + row.cells[1].innerHTML + '",' +
+                '"milestoneCost": 0,' +
+                '"milestoneDesc":"' + row.cells[2].innerHTML + '",' +
+                '"milestoneId": 0,' +
+                '"milestonePercDue": "' + row.cells[3].innerHTML + '",' +
+                '"notes": "' + row.cells[4].innerHTML + '",' +
+                '"readyForContractorApproval": true,' +
+                '"readyForCustomerApproval": true,' +
+                '"status": 0' +
+                '}';
+        } else {
+            mileST = mileST + comms +
+                '{' +
+                '"completionDate":"' + row.cells[1].querySelector('input').value + '",' +
+                '"milestoneCost": 0,' +
+                '"milestoneDesc":"' + row.cells[2].innerHTML + '",' +
+                '"milestoneId": 0,' +
+                '"milestonePercDue": "' + row.cells[3].querySelector('input').value + '",' +
+                '"notes": "' + row.cells[4].querySelector('input').value + '",' +
+                '"readyForContractorApproval": true,' +
+                '"readyForCustomerApproval": true,' +
+                '"status": 0' +
+                '}';
+        }
+        comms = ',';
+		}
+    }
+    mileST = mileST + ''
+        return mileST;
+}
+
+function tabtypeset() {
+	sessionStorage.setItem("tabtype", "submitint");
+}
+
+</script> 
+<script src="js/swagger.js"></script>
+		<script>
+			var pageType = "Contractor";
+			loginses();
+			subInt();
+		</script>
+<div class="modal"><!-- Loading Animation --></div>
+</div>
+</body>
+</html>

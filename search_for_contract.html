@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bluelife.css">
+	
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+  </head>
+  <body>
+  <div id="hideBody">
+  <div id="err"></div>
+	<div class="w3-display-container w3-card-4 mySlides" style="width:800px">
+		<h4>Please enter a Zip code and click the 'Search' button to pull all the relevant contracts in and around 20 miles of the zip code</h4>
+		<h2>Search by,</h2>
+		<ul class="w3-ul w3-card-4">
+			<li class="w3-bar">
+				<form id="zip_search">
+					Zip Code<input id="zip" class="w3-input" type="text" >
+					<!--City<input class="w3-input" type="text" ><br>-->
+					<br><button id="submitReg" class="w3-button w3-round-xxlarge w3-blue" >Search</button>
+				</form>
+			</li>
+		</ul>
+	</div>
+	
+	<div id="map" style="width:100%;height:600px;"></div>
+	
+    <script>
+		var storedNames = JSON.parse(sessionStorage.getItem("latlong"));
+		//console.log(storedNames);
+		var map;
+		function initMap() {
+		    map = new google.maps.Map(document.getElementById('map'), {
+		            center: {
+		                lat: storedNames[0].woAddress.latitude,
+		                lng: storedNames[0].woAddress.longitude
+		            },
+		            zoom: 12
+		        });
+
+		    var infowindow = new google.maps.InfoWindow();
+		    var marker, i;
+
+		    for (i = 0; i < storedNames.length; i++) {
+		        marker = new google.maps.Marker({
+		                //position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+						position: new google.maps.LatLng(storedNames[i].woAddress.latitude, storedNames[i].woAddress.longitude),
+						title: "Click the marker to Work Order",
+		                map: map
+		            });
+
+		        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+		                return function () {
+		                    infowindow.setContent("<h2><a href='/index.php/submit-interest'>"+storedNames[i].woSubject+"</a></h2>");
+		                    infowindow.open(map, marker);
+							sessionStorage.setItem("woid", storedNames[i].workorderId);
+							sessionStorage.setItem("woBid", 0);
+							//sessionStorage.setItem("tabtype", "mapsearch");
+		                }
+		            })(marker, i));
+		    }
+
+		}
+		</script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7xtGshY7YvvmMXrxKJ9CGzgW_2ezyrLs&callback=initMap"
+    async defer></script>
+	
+	<div class="modal"><!-- Loading Division --></div>
+	<script src="js/swagger.js"></script>
+		<script>
+		var pageType = "Contractor";
+		loginses();
+		zipSearch();
+		sessionStorage.removeItem('latlong');
+		</script>
+	<div class="modal"><!-- Loading Animation --></div>
+	</div>
+  </body>
+</html>

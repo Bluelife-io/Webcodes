@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bluelife.css">
+
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	
+	<body>
+	<div id="hideBody">
+		<div id="err"></div>
+		<form name="ContractorOnboardForm" id="cont_reg" method="post">
+			<div class="w3-content" style="max-width:800px">
+				<div class="w3-display-container mySlides">
+					<br><br>
+					<div class="w3-container w3-center w3-light-grey" style="font-size:18px;">
+						Personal information
+					</div><br>
+
+					<label>First Name</label>
+					<input class="w3-input" id="first_name" name="first_name" type="text">
+
+					<label>Last Name</label>
+					<input class="w3-input" id="last_name" name="last_name" type="text">
+
+					<label>Company Name</label>
+					<input class="w3-input" id="company_name" name="company_name" type="text">
+
+					<label>Address</label>
+					<input class="w3-input" id="address1" name="address1" type="text" placeholder="Enter street info">
+					<input class="w3-input" id="address2" name="address2" type="text" placeholder="Enter City info">
+					<input class="w3-input" id="address5" name="address5" type="text" placeholder="Enter State info">
+					<input class="w3-input" id="address3" name="address3" type="text" placeholder="Enter Country info" value="USA">
+					<input class="w3-input" id="address4" name="address4" type="text" placeholder="Enter Zip code">
+
+					<label>Phone Number</label>
+					<input class="w3-input" id="phone_no" name="phone_no" type="tel" required>
+
+					<label>Email</label>
+					<input class="w3-input" id="email" name="email" type="email"> 
+
+					<br>
+					<div class="w3-container w3-right w3-light-grey">
+						Page 1 of 3
+					</div><br>
+				</div>
+
+				<div class="w3-display-container mySlides">
+					<br><br>
+					<div class="w3-container w3-center w3-light-grey" style="font-size:18px;">
+						Credentials
+					</div><br>
+
+					<label>User Name</label>
+					<input class="w3-input" id="user_name" name="user_name" type="text">
+
+					<label>Password</label>
+					<input class="w3-input" id="password" name="password" type="password">
+
+					<label>Re-enter password</label>
+					<input class="w3-input" id="re_enter_pwd" name="re_enter_pwd" type="password">
+
+					<label>License number (CSLB)</label>
+					<input class="w3-input" id="cslb_lic_no" name="cslb_lic_no" type="text">
+
+					<label>Licensed State</label>
+					<input class="w3-input" id="lic_state" name="lic_state" type="text"> 
+
+					<label>Licensed expiry date</label>
+					<input class="w3-input" id="lic_exp" name="lic_exp" type="date"> 
+					
+					<br>
+					<div class="w3-container w3-right w3-light-grey">
+						Page 2 of 3
+					</div><br>
+				</div>
+
+				<div class="w3-display-container mySlides">
+					<br><br>
+					<div class="w3-container w3-center w3-light-grey" style="font-size:18px;">
+						Insurance information
+					</div><br> 
+
+					<label>Company type</label>
+					<!--<input class="w3-input" id="company_type" name="company_type" type="text">-->
+					<select id="company_type" class="w3-select w3-border" name="company_type">
+					<option value="" disabled selected>Select a value</option>
+					<option value="1">General contractor</option>
+					<option value="2">Electrician</option>
+					<option value="3">Plumber</option>
+					<option value="4">Heating & Duct work</option>
+					<option value="5">Drywaller</option> 
+					<option value="6">Painter</option> 
+					<option value="7">Finish Carpenter</option> 
+					<option value="8">Flooring contractor</option> 
+					<option value="9">Others</option> 
+					</select> 
+
+					<label>Worker's comp insurance provider</label>
+					<input class="w3-input" id="work_comp_ins" name="work_comp_ins" type="text">
+
+					<label>Worker's comp policy number</label>
+					<input class="w3-input" id="work_comp_policy_no" name="work_comp_policy_no" type="text">
+
+					<label>Commercial Gen. Liab. Provider</label>
+					<input class="w3-input" id="comm_gen_liab_provider" name="comm_gen_liab_provider" type="text">
+
+					<label>Commercial Gen. Liab. Policy number</label>
+					<input class="w3-input" id="comm_gen_liab_pol_no" name="comm_gen_liab_pol_no" type="text">
+					<br>
+					<input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I agree to the <a href="/index.php/contractor-terms" target="popup" onclick="window.open('/index.php/contractor-terms','popup','height='+window.innerheight+',width='+window.innerwidth+''); return false;" style="color:blue;">terms of service</a>
+					<br>
+					<div class="w3-container w3-right w3-light-grey">
+						Page 3 of 3
+					</div><br>
+					<br>
+				</div>
+			</div>
+			
+			<div class="w3-container w3-center">
+				<input name="contPrevBtn" type="button" id="prevBtn" class="w3-button w3-light-grey w3-border-blue " onclick="prevDivs(-1)" value="<<Prev">
+				<button name="button" id="submit" class="w3-button w3-light-grey w3-border-blue">Submit Registration</button> 
+				<input name="contNxtBtn" type="button" id="nxtBtn" class="w3-button w3-light-grey w3-border-blue" value="Next>>">
+			</div>
+		</form>
+		
+		<script src="js/swagger.js"></script>
+		<script>
+			alreadyLogin();
+			DivSlide();
+			ContReg();
+		</script>
+		<div class="modal"><!-- Loading Animation --></div>
+		</div>
+	</body>
+</html>

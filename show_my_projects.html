@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bluelife.css">
+
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	
+	<body>
+	<div id="hideBody">
+		<div id="err"></div>
+		<div align="center">
+			<br>
+			<input type="button" onclick="window.location.href = '/index.php/customer/start-project';" class="w3-button w3-round-xxlarge w3-blue" value="Create New Work Order"></input>
+			&nbsp &nbsp &nbsp
+			<input type="button" onclick="location.reload();" class="w3-button w3-round-xxlarge w3-blue" value="Refresh My Work Orders"></input>
+			<br><br>
+		</div>
+		
+		<div class="w3-display-container w3-card-4 mySlides" >
+		
+			<table id="workOrderTable" class="w3-table w3-bordered listing">
+			<br>
+			<h3 style="display: inline;">Your work orders</h3>
+				<tr class="w3-text-blue">
+				  <th>Work Order #</th>
+				  <th>Title</th>
+				  <th>Construction site</th>				  
+				  <th>Status</th>
+				  <th>Completion date</th>
+				</tr>
+				
+				<br> <br>
+			</table>		
+		</div>
+		<div id="norecords"></div>
+		<script src="js/swagger.js"></script>
+		<script>
+			var pageType = "Customer";
+			loginses();
+			cusWorkOrderList();
+		</script>
+		<link href="css/jquery.treetable.css" rel="stylesheet" type="text/css" />
+		<link href="css/jquery.treetable.theme.default.css" rel="stylesheet" type="text/css" />
+		<script src="js/jquery.treetable.js"></script>
+		<div class="modal"><!-- Loading Animation --></div>
+		</div>
+	</body>
+</html>

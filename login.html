@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		
+		<style>
+			.w3-allerta {
+				font-family: "Allerta Stencil", Sans-serif;
+			}
+
+			.button {
+				display: inline-block;
+				border-radius: 4px;
+				background-color: #f4511e;
+				border: none;
+				color: #FFFFFF;
+				text-align: center;
+				font-size: 28px;
+				padding: 20px;
+				width: 200px;
+				transition: all 0.5s;
+				cursor: pointer;
+				margin: 5px;
+			}
+
+			.button span {
+				cursor: pointer;
+				display: inline-block;
+				position: relative;
+				transition: 0.5s;
+			}
+
+			.button span:after {
+				content: '\00bb';
+				position: absolute;
+				opacity: 0;
+				top: 0;
+				right: -20px;
+				transition: 0.5s;
+			}
+
+			.button:hover span {
+				padding-right: 25px;
+			}
+
+			.button:hover span:after {
+				opacity: 1;
+				right: 0;
+			}
+			
+			.modal {
+				display:    none;
+				position:   fixed;
+				z-index:    1000;
+				top:        0;
+				left:       0;
+				height:     100%;
+				width:      100%;
+				background: rgba( 255, 255, 255, .8 ) 
+							url('http://i.stack.imgur.com/FhHRx.gif') 
+							50% 50% 
+							no-repeat;
+			}
+
+			body.loading .modal {
+				overflow: hidden;   
+			}
+
+			body.loading .modal {
+				display: block;
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+		<div id="err"></div>
+		<form id="cust_login" method="post">
+			<div class="w3-content" style="max-width:800px">
+				<div class="w3-display-container mySlides">
+					<label>User name</label>
+					<input class="w3-input" id="user_name" name="userID" type="text">
+					<label>Password</label>
+					<input class="w3-input" id="password" name="userpwd" type="password">
+					<br>
+				</div>
+			</div>
+			<div class="w3-container w3-center">
+				<button class="button" style="vertical-align:middle">
+					<span>Login </span>
+				</button>
+				<br>
+				<a href="#" >Forgot user name</a> &nbsp &nbsp | &nbsp &nbsp
+				<a href="#" >Forgot password</a>
+				<br><br>
+				<a href="/index.php/customer/register" >Register as Customer</a> &nbsp &nbsp | &nbsp &nbsp
+				<a href="/index.php/contractor/register" >Register as Contractor</a>
+			</div>
+		</form>
+		<script src="js/swagger.js"></script>
+		<script> login(); </script>
+		<div class="modal"><!-- Loading Animation --></div>
+	</body>
+</html>

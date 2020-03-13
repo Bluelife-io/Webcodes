@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bluelife.css">
+
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	
+	<body>
+		<a id="showlistlink" href=""><input id="showlistbtn" type="button" class="w3-button w3-round-xxlarge w3-blue" value=""></a> <span id="secondlink"></span><br><br>
+		<!-----------------------------------Buttons--------------------------------------->
+		<div id="button" class="w3-bar ">
+		  <button id="statusbtn" class="w3-bar-item w3-button w3-round w3-border w3-border-blue tablink" onclick="openCity(event,'status', this.id)">Status</button>
+		  <button id="WorkOrderDetails" class="w3-bar-item w3-button w3-round w3-border w3-border-blue tablink" onclick="openCity(event,'custInfo', this.id)">Work Order Details</button>
+		  <button id="ContractorDetails" class="w3-bar-item w3-button w3-round w3-border w3-border-blue tablink" onclick="openCity(event,'contractorInfo', this.id)">Contractor Information</button>
+		  <button id="MiscellaniousCost" class="w3-bar-item w3-button w3-round w3-border w3-border-blue tablink" onclick="openCity(event,'miscCost', this.id)">Miscellaneous costs</button>
+		  <button id="PaymentDetails" class="w3-bar-item w3-button w3-round w3-border w3-border-blue tablink" onclick="openCity(event,'paymentInfo', this.id)">Payment Information</button>
+		  <button id="History"class="w3-bar-item w3-button w3-round w3-border w3-border-blue tablink" onclick="openCity(event,'history', this.id)">History</button>
+		</div>
+		<!-----------------------------------Status--------------------------------------->
+		<div id="status" class="city">
+		 
+			<div class="w3-panel w3-gray">
+		  <h2 class="w3-opacity">Milestone status: </h2>
+		</div>
+
+
+		   <div id="milestoneMessage"></div> <br><br>Project is &nbsp <span id="milestoneStatus" class="w3-tag w3-large w3-padding-large w3-green"></span> for completion
+		   
+
+
+			<div class="w3-panel w3-gray">
+		  <h2 class="w3-opacity">Project overview: </h2>
+		</div>
+
+		  
+		  <div class="w3-display-container">
+			<img id="ganttchartLink" src="image/statusimage.jpg" alt="Lights" width="800px" height="">
+		  <!--<div class="w3-display-bottomleft w3-container">As of: 10/2/2019</div>-->
+		  </div>
+		  <p></p>
+		  
+		  <div class="w3-panel w3-gray">
+		  <h2 class="w3-opacity">Approvals pending:</h2> <!--i class="fa fa-spinner w3-spin" style="font-size:64px"></i-->
+		</div>
+		  
+		  
+		  Customer: <span id="customerApprovalMesssge"></span> &nbsp &nbsp <button id="customerApprovalButton" class="w3-bar-item w3-button w3-round-xlarge tablink w3-orange"> Click to approve</button></p>
+			<p>Contractor: <span id="contractorApprovalMesssge"></span></p>
+		  
+			<div class="w3-panel w3-gray">
+		  <h2 class="w3-opacity">Comments: </h2>
+		</div>
+		  <h3 class="w3-text-red">Customer: <span id="commentsText"></span></h3>
+		  
+		  <button id="clickToRespond" class="w3-bar-item w3-button w3-round-xlarge tablink w3-blue"> Click to respond</button>&nbsp &nbsp &nbsp
+		  <button id="clickToChat" class="w3-bar-item w3-button w3-round-xlarge tablink w3-blue"> Click to chat</button>
+		  <br>
+		  <textarea id="clickToRespondMessage" name="message" rows="10" cols="100"></textarea>
+		</div>
+
+		<!-----------------------------------Work Order Details--------------------------------------->
+
+		<div id="custInfo" class="city w3-content" style="display:none" >
+					<label class="w3-text-blue">Customer Name</label>
+					<input id="customerName" class="w3-input" type="text" value="">
+
+					<label class="w3-text-blue">Construction site</label>
+					<input id="constructionSite" class="w3-input" type="text" value="">
+
+					<label class="w3-text-blue">Zip code</label>
+					<input id="zipCode" class="w3-input" type="text" VALUE="">
+
+					<label class="w3-text-blue">Project description</label>
+					<input id="projectDescription" class="w3-input" type="textbox" value="">
+
+					<label class="w3-text-blue">Preferred start date</label>
+					<input id="preferredStartDate" class="w3-input" type="text" value="">
+
+					<label class="w3-text-blue">Preferred end date</label>
+					<input id="preferredEndDate" class="w3-input" type="text" value="">
+
+					<label class="w3-text-blue">Penalty for late completion</label>
+					<input id="penaltyForLateCompletion" class="w3-input" type="text" value="">
+					
+					<label class="w3-text-blue">Milestones</label>
+					<table id="milestones" class="w3-table w3-bordered">
+						<tr class="w3-text-blue">
+						  <th>Due Date</th>
+						  <th>Milestone name</th>
+						  <th>Status</th>
+						  <th style="text-align:right;">Amount due</th>
+						</tr>
+						<br> <br>
+					</table>			
+					<br><br>
+					Question: <form><input id="askCustomer" class="w3-input" type="text" placeholder="Enter your question for the customer">
+			`		<input type="button" id="asktocustomer" class="w3-bar-item w3-button w3-round-xlarge tablink w3-blue" value="Ask the customer"></form>
+
+		</div>
+		<!---------------------------Contractor Information--------------------------------------->
+		<div id="contractorInfo" class="city w3-content" style="max-width:800px display:none">
+
+					<label class="w3-text-blue">Contractor name</label>
+					<input id="contractFirmName" class="w3-input" type="text" value="">
+
+					<label class="w3-text-blue">Contractor ph</label>
+					<input id="contactNumber" class="w3-input" type="text" value="">
+
+					<label class="w3-text-blue">Quoted amount</label>
+					<input id="bidPrice" class="w3-input" type="text" value="">
+
+					<label class="w3-text-blue">Milestones</label>
+					
+					<table id="mileStoneList" class="w3-table w3-bordered">
+						<tr>
+						  <th>Due Date</th>
+						  <th>Milestone name</th>
+						  <th>Status</th>
+						  <th style="text-align:right;">Amount due</th>
+						</tr>
+					</table>
+					
+					<label class="w3-text-blue">List of sub-contractors used:</label>
+					<table id="subContractorTble" class="w3-table w3-bordered">
+						<tr>
+						  <th>Sl #</th>
+						  <th>Company name</th>
+						  <th>Phone #/Email address</th>
+						  <th>Address</th>
+						</tr>
+					</table>			
+					<br>
+
+					<input id="subName2" class="w3-input" type="text" placeholder="Enter sub-contractor's name">
+					<input id="subEmail" class="w3-input" type="text" placeholder="Enter sub-contractor's email address">
+					<input id="subAddress" class="w3-input" type="text" placeholder="Enter sub-contractor's address">	
+					<button class="w3-button w3-blue w3-round-xxlarge" onclick="addSubContractor()">+Add sub-contractor</button></p>
+					
+					<br><br>
+
+					Question: <form><input id="askContractor" class="w3-input" type="text" placeholder="Enter your question for the contractor">
+			`		<input type="button" id="asktocontractor" class="w3-bar-item w3-button w3-round-xlarge tablink w3-blue" value="Ask the contractor"></form>
+		</div>
+
+		<!----------------------MiscellaniousCost----------------------------->
+		<div id="miscCost" class="city w3-content" style="max-width:800px display:none">
+
+					<label class="w3-text-blue">Description</label>
+					<input id="expDesc" class="w3-input" type="text" value="">
+
+					<label class="w3-text-blue">Expense date</label>
+					<input id="expenseDate" class="w3-input" id="expDate" type="date" value="">	
+
+					<label class="w3-text-blue">Amount</label>
+					<input id="expenseAmount" class="w3-input" id="amount" type="text" value="">
+					<br>
+					<button class="w3-button w3-blue w3-round-xxlarge" onclick="addExpenses()">+Miscellaneous expense</button></p>
+					<br><br>
+
+					<label class="w3-text-blue">Expenses</label>
+					<table id="expensesTable" class="w3-table w3-bordered">
+						<tr>
+						  <th>Sl #</th>
+						  <th>Description</th>
+						  <th>Expense date</th>
+						  <th>Amount</th>
+						</tr>
+					</table>			
+					
+		</div>
+		<!-----------------PaymentDetails-------------------->
+		<div id="paymentInfo" class="city w3-content" style="max-width:800px display:none">
+		  <h2>Payment Information</h2>
+
+					<label class="w3-text-blue">Financial institution</label>
+					<input id="finInstitue" class="w3-input" type="text" value="">
+
+					<label class="w3-text-blue">Contractor approved contractor</label>
+					<input id="contractorApproved" class="w3-input" type="select" value="">
+
+					<label class="w3-text-blue">Customer Deposit complete</label>
+					<input id="customerDepositComplete" class="w3-input" type="textbox" value="">  
+
+					<label class="w3-text-blue">Transaction broker</label>
+					<input id="paymentID" class="w3-input" type="textbox" value="">  
+					
+					<label class="w3-text-blue">Payment Schedule</label>
+					<table id="payments"  class="w3-table w3-bordered">
+						<tr >
+						  <th>Due Date</th>
+						  <th>Milestone name</th>
+						  <th>Status</th>
+						  <th style="width:150px" style="text-align:right;">Amount transferred</th>
+						  <th style="text-align:center;">Notes</th>
+						</tr>
+					<!--	<tr>
+						  <td>10/01/2019</td>
+						  <td>Customer deposit</td>
+						  <td class="w3-red">Late </td>
+						  <td>$20,000</td>
+						  <td>Customer yet to initiate</td>
+						</tr>			
+					-->
+					</table>			
+		</div>
+
+<!-----------------History-------------------->
+		<div id="history" class="city w3-content" style="max-width:800px display:none">
+
+			<br><br>
+			<label>Enter comments</label>
+			
+			<input class="w3-input" type="select"><p></p>
+			<button class="w3-bar-item w3-button w3-round-xlarge tablink w3-blue"> Submit comments</button>
+
+			<div class="w3-container">
+			  <h2>History</h2>
+			  <ul id="createdHistory" class="w3-ul w3-card-4">
+
+			  </ul>
+			</div>
+
+
+		</div>
+
+		  <div id="custPayment" class="w3-modal">
+			<div class="w3-modal-content">
+			  <div class="w3-container">
+				<span onclick="document.getElementById('custPayment').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+
+					<h1 color="blue">Submit payment proof</h1>
+					<label>(Select a bank statement or screen capture from your bank account showing the financial balance to support the next milestone payment) </label>
+					
+					<br><br>
+					<input id="expDesc" class="w3-input" type="file" placeholder="Select the payment proof file">
+					<br>
+					<button class="w3-button w3-blue w3-round-xxlarge" onclick="addSubContractor()">Submit proof</button>
+					<br>
+					(Note: Please strike out any sensitive information such as Social security number, account # etc)
+			  </div>
+			</div>
+		  </div>
+
+		<script>
+			//openCity(event, 'status');
+			//openCity(event, 'custInfo');
+			
+			tabsToShow();
+			
+			function tabsToShow() {
+			    if (sessionStorage.getItem("tabtype") == "submitint" || sessionStorage.getItem("tabtype") == "clickedByWo") {
+			            document.getElementById('statusbtn').disabled = true;
+			            document.getElementById('WorkOrderDetails').disabled = false;
+			            document.getElementById('ContractorDetails').disabled = true;
+			            document.getElementById('MiscellaniousCost').disabled = true;
+			            document.getElementById('PaymentDetails').disabled = true;
+			            document.getElementById('History').disabled = true;
+			            document.getElementById('WorkOrderDetails').click();
+			        } else if (sessionStorage.getItem("tabtype") == "clickedByBid") {
+						if (sessionStorage.getItem("offer") == "false") {
+							document.getElementById('statusbtn').disabled = true;
+							document.getElementById('WorkOrderDetails').disabled = false;
+							document.getElementById('ContractorDetails').disabled = false;
+							document.getElementById('MiscellaniousCost').disabled = true;
+							document.getElementById('PaymentDetails').disabled = true;
+							document.getElementById('History').disabled = true;
+							document.getElementById('WorkOrderDetails').click();
+						} else if (sessionStorage.getItem("offer") == "true") {
+							document.getElementById('statusbtn').disabled = false;
+							document.getElementById('WorkOrderDetails').disabled = false;
+							document.getElementById('ContractorDetails').disabled = false;
+							document.getElementById('MiscellaniousCost').disabled = false;
+							document.getElementById('PaymentDetails').disabled = false;
+							document.getElementById('History').disabled = false;
+							document.getElementById('statusbtn').click();
+						} else {
+							document.getElementById('statusbtn').disabled = true;
+							document.getElementById('WorkOrderDetails').disabled = false;
+							document.getElementById('ContractorDetails').disabled = true;
+							document.getElementById('MiscellaniousCost').disabled = true;
+							document.getElementById('PaymentDetails').disabled = true;
+							document.getElementById('History').disabled = true;
+							document.getElementById('WorkOrderDetails').click();
+						}
+					}
+			}
+			
+			function openCity(evt, cityName, clicked_id) {
+			    var i,
+			    x,
+			    tablinks;
+			    x = document.getElementsByClassName("city");
+			    for (i = 0; i < x.length; i++) {
+			        x[i].style.display = "none";
+
+			    }
+			    disableTab(document.getElementById("status"), true);
+			    tablinks = document.getElementsByClassName("tablink");
+			    for (i = 0; i < x.length; i++) {
+			        tablinks[i].className = tablinks[i].className.replace(" w3-blue", "");
+
+			    }
+			    document.getElementById(cityName).style.display = "block";
+			    document.getElementById(clicked_id).classList.add("w3-blue");
+			}
+
+			function disableTab(control, flag) {
+				var Page_Validators = control.childNodes;
+				//console.log(Page_Validators);
+				//alert(Page_Validators[10].nodeName);
+				for (i = 0; i <= Page_Validators.length; i++) {
+					//console.log(Page_Validators[i].nodeName);
+					//alert("inside foreach ->" + Page_Validators[i].disabled);
+					if (Page_Validators[i] !== undefined && 'nodeName' in Page_Validators[i]) //.nodeName !== undefined)
+					{
+
+						//console.log(Page_Validators[i].id);
+						if (Page_Validators[i].nodeName.toLowerCase() == 'input' || Page_Validators[i].nodeName.toLowerCase() == 'button') {
+							//console.log(Page_Validators[i].nodeName.toLowerCase() + " disabled");
+							Page_Validators[i].disabled = flag;
+
+						}
+					}
+					//Page_Validators[i].isvalid = true;
+					//ValidatorUpdateDisplay(Page_Validators[i]);
+				}
+			}
+
+			function addExpenses() {
+				var table = document.getElementById("expensesTable");
+				var x = document.getElementById('expensesTable').getElementsByTagName('tr').length - 1;
+				var row = table.insertRow();
+				var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+				var cell3 = row.insertCell(2);
+				var cell4 = row.insertCell(3);
+
+				cell1.innerHTML = x + 1;
+				cell2.innerHTML = document.getElementById("expDesc").value;
+				document.getElementById("expDesc").value = "";
+				cell3.innerHTML = document.getElementById("expDate").value;
+				cell3.innerHTML = document.getElementById("amount").value;
+			}
+
+			function addSubContractor() {
+				var table = document.getElementById("subContractorTble");
+				var x = document.getElementById('subContractorTble').getElementsByTagName('tr').length - 1;
+				var row = table.insertRow();
+				var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+				var cell3 = row.insertCell(2);
+				var cell4 = row.insertCell(3);
+				cell1.innerHTML = x + 1;
+				cell2.innerHTML = document.getElementById("subName").value;
+				document.getElementById("subName").value = "";
+				cell3.innerHTML = document.getElementById("subEmail").value;
+				document.getElementById("subEmail").value = "";
+				cell4.innerHTML = document.getElementById("subAddress").value;
+				document.getElementById("subAddress").value = "";
+			}
+			
+			
+			
+			if (sessionStorage.getItem("user_type") == "Customer"){
+				$('#showlistbtn').attr('value', 'Show my projects');
+				$('#showlistlink').attr('href', '/index.php/customer/show-my-projects');
+			} else if (sessionStorage.getItem("user_type") == "Contractor" && sessionStorage.getItem("tabtype") != "submitint") {
+				$('#showlistbtn').attr('value', 'Show my contracts');
+				$('#showlistlink').attr('href', '/index.php/contractor/show-my-contracts');
+			} else if (sessionStorage.getItem("user_type") == "Contractor" && sessionStorage.getItem("tabtype") == "submitint") {
+				$('#showlistbtn').attr('value', 'Back to submit interest');
+				$('#showlistlink').attr('href', '/index.php/submit-interest');
+				$('#secondlink').html('<a href="/index.php/contractor/search-for-a-contract"><input type="button" class="w3-button w3-round-xxlarge w3-blue" value="Search for a contract">');
+			}
+			
+		</script>
+		<script src="js/swagger.js"></script>
+		<script>
+		var pageType = "both";
+			loginses();
+			StatusTab();
+			WorkOrderDetails();
+			ContractorTab();
+			MiscellaneousCost();
+			PaymentDetails();
+			HistoryTab();
+			askTheCustomer();
+			askTheContractor();
+		</script>
+		<div class="modal"><!-- Loading Division --></div>
+	</body>
+</html>

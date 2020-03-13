@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bluelife.css">
+		
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	<div id="hideBody">
+	<div id="err"></div>
+		<form id="work_order" method="post" action="" name="ContractorOnboardForm" >
+			<div class="w3-content" style="max-width:800px">
+				<div class="w3-display-container mySlides">
+					<div class="w3-container w3-center w3-light-grey">
+					 Location
+					</div><br>
+
+					<label>Work Order Title</label>
+					<input name="title" class="w3-input" id="title" type="text">
+
+					<label>Site address</label><br>
+					&nbsp;&nbsp;&nbsp;<label>Street</label>
+					&nbsp;&nbsp;&nbsp;<input name="street" class="w3-input" id="street" type="text">
+					
+					&nbsp;&nbsp;&nbsp;<label>City</label>
+					&nbsp;&nbsp;&nbsp;<input name="city" class="w3-input" id="address1" type="text">
+
+					&nbsp;&nbsp;&nbsp;<label>State</label>
+					&nbsp;&nbsp;&nbsp;<input name="state" class="w3-input" id="address2" type="text">
+
+					&nbsp;&nbsp;&nbsp;<label>Zip code</label>
+					&nbsp;&nbsp;&nbsp;<input name="zipcode" class="w3-input" id="address3" type="text">
+
+					&nbsp;&nbsp;&nbsp;<label>Country</label>
+					&nbsp;&nbsp;&nbsp;<input name="country" class="w3-input" id="address4" type="text" value="USA"> 
+
+					<br>
+					<div class="w3-container w3-right w3-light-grey">
+					 Page 1 of 3
+					</div><br>
+				</div>
+
+				<div class="w3-display-container mySlides">
+					<div class="w3-container w3-center w3-light-grey">
+					 Project details
+					</div><br> 
+
+					<label>Category</label>
+					&nbsp;&nbsp;&nbsp;<select id="category" class="w3-select w3-border" name="category">
+					<option value="" disabled selected>Select a value</option>
+					<option value="1">Patio addition</option>
+					<option value="2">Deck addition</option>
+					<option value="3">Roof replacement</option>
+					<option value="3">Floor replacement</option>
+					<option value="3">Kitchen remodeling</option> 
+					<option value="3">Tear & build a new house</option> 
+					<option value="3">Other</option> 
+					</select> 
+					<label>Summary</label>
+					<textarea id="summary" class="w3-input" rows = "5" cols = "60" name = "summary"></textarea><br> 
+
+					<label>Budget</label>
+					<div class="w3-row-padding">
+						<div class="w3-half">
+							<input name="budget" class="w3-input" id="budget" type="text" value="0"> 
+						</div>
+						<div class="w3-half">
+							<select class="w3-select w3-border" name="usd">
+								<option value="1" selected>in USD</option>
+								<option value="2">Other</option>
+							</select> 
+						</div>
+					</div> 
+
+					<label>Building Permit</label>
+					<div class="w3-row-padding">
+						<div class="w3-third">
+							<label>Permit obtained</label>
+							<select id="permit" class="w3-select w3-border" name="permit">
+								<option value="yes" selected>Yes</option>
+								<option value="no">No</option>
+							</select> 
+						</div>
+						<div class="w3-third">
+							If yes,when
+							<input id="when" name="permitObtainDate" class="w3-input" id="lic_exp" type="date"> 
+						</div>
+						<div class="w3-third">
+							Expiry date
+							<input name="permitExpiryDate" class="w3-input" id="exp_date" type="date"> 
+						</div> 
+					</div> 
+
+					<br>
+					<div class="w3-container w3-right w3-light-grey">
+					 Page 2 of 3
+					</div><br>
+
+					<br>
+				
+				</div>
+
+				<div class="w3-display-container mySlides">
+					<div class="w3-container w3-center w3-light-grey">
+						Contractor preference
+					</div><br>
+					<label>Prefer local contractor?</label>
+					<select id="pref_contractor" class="w3-select w3-border" name="pref_contractor">
+						<option value="1" selected>Yes</option>
+						<option value="2">No</option>
+						<option value="3">Does not matter</option>
+					</select> 
+					<div class="w3-row-padding">
+					<div class="w3-third"> 
+						Preferred start date 
+						<input name="preStartDate" class="w3-input" id="start_date" type="date"> 
+					</div> 
+					<div class="w3-third"> 
+						Preferred end date 
+						<input name="preEndDate" class="w3-input" id="end_date" type="date"> 
+					</div>
+					</div>
+					<label>Penalty for late finish</label>
+					<div class="w3-row-padding">
+						<div class="w3-third">
+							<input name="penalty" class="w3-input" id="penalty" type="text" value="0"> 
+						</div>
+						<div class="w3-third">
+							<select class="w3-select w3-border" name="option">
+								<option value="1" selected>%</option>
+								<option value="2">fixed amount in US $</option>
+							</select> 
+						</div>
+					</div>
+					<label>Reward for early finish</label>
+					<div class="w3-row-padding">
+						<div class="w3-third">
+							<input name="reward" class="w3-input" id="reward" type="text" value="0"> 
+						</div>
+						<div class="w3-third">
+							<select class="w3-select w3-border" name="option">
+								<option value="1" selected>%</option>
+								<option value="2">fixed amount in US $</option>
+							</select> 
+						</div>
+					</div>
+					<label>Questions for Contractor</label>
+					<textarea id="question" class="w3-input" rows = "5" cols = "60" name = "question"></textarea><br> 
+					<br>
+					<input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I agree to the <a href="/index.php/workorder-terms" target="popup" onclick="window.open('/index.php/workorder-terms','popup','height='+window.innerheight+',width='+window.innerwidth+''); return false;" style="color:blue;">terms of service</a>
+					<div class="w3-container w3-right w3-light-grey">
+						Page 3 of 3
+					</div><br>
+				</div>
+			</div>
+
+			<div class="w3-container w3-center">
+				<input name="woPrevBtn" type="button" id="prevBtn" class="w3-button w3-light-grey w3-border-blue " onclick="prevDivs(-1)" value="<<Prev">
+				<button name="button" id="submit" class="w3-button w3-light-grey w3-border-blue">Save Work Order</button> 
+				<input name="woNxtBtn" type="button" id="nxtBtn" class="w3-button w3-light-grey w3-border-blue" value="Next>>">
+			</div>
+		</form>
+		
+		<script src="js/swagger.js"></script>
+		<script>
+			var pageType = "Customer";
+			loginses();
+			DivSlide();
+			WorkOrder();
+		</script>
+		<div class="modal"><!-- Loading Division --></div>
+		</div>
+	</body>
+</html>
