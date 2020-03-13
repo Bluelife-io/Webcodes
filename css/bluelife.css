@@ -1,0 +1,53 @@
+/**/
+/*Work order id button shows as link*/
+.btnSelect {
+	background: none!important;
+	border: none;
+	padding: 0!important;
+	color: #069;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/*Loading animation starts*/
+.modal {
+	display:    none;
+	position:   fixed;
+	z-index:    1000;
+	top:        0;
+	left:       0;
+	height:     100%;
+	width:      100%;
+	background: rgba( 255, 255, 255, .8 ) 
+				url('http://i.stack.imgur.com/FhHRx.gif') 
+				50% 50% 
+				no-repeat;
+}
+
+body.loading .modal {
+	overflow: hidden;   
+}
+
+body.loading .modal {
+	display: block;
+}
+/*Loading animation ends*/
+
+.success {
+	color: #270;
+	background-color: #DFF2BF;
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+	font-weight: 300;
+	margin: 25px;
+}
+
+form .error {
+	color: #ff0000;
+}
+
+#message {
+  width: 70%;
+  margin: 0 auto;
+  border: 5px solid green;
+  padding: 50px;
+}
